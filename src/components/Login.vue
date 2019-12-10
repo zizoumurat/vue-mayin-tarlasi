@@ -19,7 +19,7 @@
           </div>
           <button type="button" class="btn btn-success" @click="loginUser">Start Game</button>
         </form>
-      <div class="alert alert-danger" role="alert" v-if="err.length>0">{{err}}</div>
+        <div class="alert alert-danger" role="alert" v-if="err.length>0">{{err}}</div>
       </div>
     </div>
   </div>
@@ -53,9 +53,12 @@ export default {
 </script>
 
 <style scoped>
-.form-container {
-  max-width: 520px;
+@media (min-width: 1200px) {
+  .form-container {
+    max-width: 520px;
+  }
 }
+
 .btn {
   width: 100%;
   background-color: #25a35c;
