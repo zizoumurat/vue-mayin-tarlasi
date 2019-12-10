@@ -8,6 +8,9 @@ body {
     text-align: center;
     margin-top: 40px;
 }
+.logo-box img{
+    max-width:100%;
+}
 
 .no-padding {
     padding: 0!important;
