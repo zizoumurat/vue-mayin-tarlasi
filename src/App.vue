@@ -1,29 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    merhaba
+    <Header />
+    <login :user="user" v-if="!user.isLogin" />
+    <game @newGame="newGame()" :user="user" :scores="scores" v-if="user.isLogin" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
+import Login from "./components/Login.vue";
+import Game from "./components/Game.vue";
 
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      scores:[],
+      user: {
+        name: "",
+        lastName: "",
+        score: 0,
+        isLogin: false,
+        isFinished: false,
+        selectedSize: 0
+      }
+    };
+  },
   components: {
-    HelloWorld
+    Header,
+    Login,
+    Game
+  },
+  methods: {
+    newGame(){
+      this.user={
+        name: "",
+        lastName: "",
+        score: 0,
+        isLogin: false,
+        isFinished: false,
+        selectedSize: 0
+      };
+    }
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
