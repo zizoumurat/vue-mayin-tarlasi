@@ -77,10 +77,8 @@ export default {
   },
   methods: {
     randomNumber() {
-      return (
-        Math.floor(
-          Math.random() * (this.user.selectedSize * this.user.selectedSize)
-        ) 
+      return Math.floor(
+        Math.random() * (this.user.selectedSize * this.user.selectedSize)
       );
     },
     clickedBomb() {
@@ -89,15 +87,15 @@ export default {
       }
     },
     restartGame() {
-      this.showModal=false;
+      this.showModal = false;
       this.user.score = 0;
       this.gameIsFinished = false;
       this.initialBombs();
     },
     newGame() {
-      this.showModal=false;
+      this.showModal = false;
       this.gameIsFinished = false;
-      this.$emit("newGame")      
+      this.$emit("newGame");
     },
     initialBombs() {
       this.arrBox = [];
@@ -105,7 +103,7 @@ export default {
       for (var i = 0; i < this.boxCount; i++) {
         this.arrBox.push({ bomb: false, class: "default", clicked: false });
       }
-      var bombss=[];
+      var bombss = [];
       while (length < this.user.selectedSize) {
         var rnd = this.randomNumber();
         if (this.arrBox[rnd].bomb == false) {
@@ -114,7 +112,7 @@ export default {
           length++;
         }
       }
-      console.log("bombalar! ",bombss);
+      console.log("bombalar! ", bombss);
     },
     gameFinished(user) {
       this.gameIsFinished = true;
@@ -129,7 +127,7 @@ export default {
       }, 4000);
     }
   },
-  props: ["user","scores"],
+  props: ["user", "scores"],
   components: {
     Box,
     TopScore
@@ -177,18 +175,14 @@ export default {
   margin-top: 30px;
   width: 100%;
 }
-.game-boxes {
-  display: inline-block;
-  width: 520px;
-  vertical-align: top;
-}
+
 .modal-dialog {
   transition: all 1s ease-in-out !important;
   width: 430px;
-  border-radius:15px;
+  border-radius: 15px;
 }
-.modal.show .modal-dialog{
-  top:100px;
+.modal.show .modal-dialog {
+  top: 100px;
 }
 .modal-header {
   background-color: #00bce5;
@@ -197,15 +191,22 @@ export default {
   color: #fff;
   font-weight: bold;
 }
-.modal-footer{
-  justify-content:center;
+.modal-footer {
+  justify-content: center;
 }
-.btn-try-again{
-  background-color:#FF8A00;
-  color:#fff;
+.btn-try-again {
+  background-color: #ff8a00;
+  color: #fff;
 }
-.btn-new-game{
-  background-color:#25A35C;
-  color:#fff;
+.btn-new-game {
+  background-color: #25a35c;
+  color: #fff;
+}
+@media (min-width: 1200px) {
+  .game-boxes {
+    display: inline-block;
+    width: 520px;
+    vertical-align: top;
+  }
 }
 </style>
