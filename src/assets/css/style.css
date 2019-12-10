@@ -12,9 +12,7 @@ body {
     max-width:100%;
 }
 
-.no-padding {
-    padding: 0!important;
-}
+
 
 .form-control {
     background-color: #f7f9fa;
@@ -25,4 +23,9 @@ body {
 
 .form-control:focus {
     background-color: #f7f9fa;
+}
+@media (min-width: 1200px) {
+    .no-padding {
+        padding: 0!important;
+    }
 }
